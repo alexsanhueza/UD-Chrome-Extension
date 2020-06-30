@@ -5,12 +5,15 @@
   "description": "This will aid you in your shameless linguistic searching my friends",
   "version": "1.0",
 
+  "web_accessible_resources": ["*.png"],
+
   "browser_action": {
     "default_icon": "UDicon.png",
     "default_popup": "index.html"
   },
+
   "background": {
-    "scripts": ["stretch.js"]
+    "scripts": ["background.js"]
   },
   "permissions": ["contextMenus"],
   "icons": {
