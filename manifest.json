@@ -1,27 +1,28 @@
 {
-    "manifest_version": 2,
-  
-    "name": "Urban Dictionary Lookup Plugin",
-    "description": "This will aid you in your shameless linguistic searching my friends",
-    "version": "1.0",
-  
-    "web_accessible_resources": ["*.png"],
+  "manifest_version": 2,
 
-    "browser_action": {
-        "default_icon": "UDicon.png",
-        "default_popup": "index.html"
-    },
+  "name": "Urban Dictionary Lookup Plugin",
+  "description": "This will aid you in your shameless linguistic searching my friends",
+  "version": "1.0",
 
-    "background": {
-        "scripts": ["background.js"]
-    },
+  "web_accessible_resources": ["*.png"],
 
+  "browser_action": {
+    "default_icon": "UDicon.png",
+    "default_popup": "index.html"
+  },
 
-   "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["content.js"]
-        }
-    ]
-   
-  }
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["contextMenus"],
+  "icons": {
+    "16": "UDicon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

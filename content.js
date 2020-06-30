@@ -1,29 +1,22 @@
-
-
 window.addEventListener('mouseup', selected);
 function selected() {
-    let selection = window.getSelection().toString().trim();
-    console.log(selection);
+  let selection = window.getSelection().toString().trim();
+  console.log(selection);
 
-    if(selection.length > 2) {
-        let message = {text: selection};
-        chrome.runtime.sendMessage(message);
-    }
+  if (selection.length > 2) {
+    let message = { text: selection };
+    chrome.runtime.sendMessage(message);
+  }
 }
 
-
-let files = ["logo.png", "logo2.png", "logo3.png"];
-let imgs = document.getElementsByTagName("img");
+let files = ['logo.png', 'logo2.png', 'logo3.png'];
+let imgs = document.getElementsByTagName('img');
 
 for (el of imgs) {
-    let pic = files[Math.floor(Math.random()*files.length)]
-    el.src = chrome.extension.getURL(pic);
-    console.log(`hi`);
+  let pic = files[Math.floor(Math.random() * files.length)];
+  el.src = chrome.extension.getURL(pic);
+  console.log(`hi`);
 }
-
-
-
-
 
 // const popDiv = document.createElement('div');
 
@@ -35,6 +28,5 @@ for (el of imgs) {
 
 //   function addDiv(def, ex) {
 //       definitionP.innerHTML = def;
-//       exampleP.innerHTML = ex;  
+//       exampleP.innerHTML = ex;
 //   }
-
