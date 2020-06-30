@@ -1,6 +1,5 @@
-function UDlookup() {
+function UDlookup(phrase) {
   //let phrase = document.querySelector('input').value;
-  let phrase = document.querySelector('#word').value;
   fetch(
     'https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=' +
       phrase,
@@ -30,13 +29,17 @@ const exampleDiv = document.createElement('div');
 document.body.appendChild(definitionDiv);
 document.body.appendChild(exampleDiv);
 
-  function addDiv(def, ex) {
-      definitionDiv.innerHTML = def;
-      exampleDiv.innerHTML = ex;  
-  }
-    
+function addDiv(def, ex) {
+  definitionDiv.innerHTML = 'Definition: ' + def;
+  exampleDiv.innerHTML = 'Example: ' + ex;
+}
 
-document.querySelector('#check').addEventListener('click', UDlookup);
+document
+  .querySelector('#check')
+  .addEventListener('click', () =>
+    UDlookup(document.querySelector('#word').value)
+  );
 
 document.addEventListener('keydown', (key) => {
-  if(key === 13) UDlookup()});
+  if (key === 13) UDlookup();
+});
