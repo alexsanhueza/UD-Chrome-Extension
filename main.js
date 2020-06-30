@@ -1,6 +1,6 @@
 function UDlookup() {
-  //let phrase = document.querySelector('input').value;
-  let phrase = document.querySelector('#word').value;
+  // let phrase = document.querySelector('input').value;
+  let phrase = document.querySelector("span").innerText;
   fetch(
     'https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=' +
       phrase,
@@ -25,18 +25,30 @@ function UDlookup() {
     });
 }
 
-const definitionDiv = document.createElement('div');
-const exampleDiv = document.createElement('div');
-document.body.appendChild(definitionDiv);
-document.body.appendChild(exampleDiv);
+let bPage = chrome.extension.getBackgroundPage();
+let button = document.querySelector("#check");
+
+const definitionSpan = document.createElement('span');
+definitionSpan.innerHTML = bPage.target;
+document.body.appendChild(definitionSpan);
+
+
+
+const popDiv = document.createElement('div');
+let definitionP = document.createElement('p');
+let exampleP = document.createElement('p');
+popDiv.appendChild(definitionP);
+popDiv.appendChild(exampleP);
+document.body.appendChild(popDiv);
+
 
   function addDiv(def, ex) {
-      definitionDiv.innerHTML = def;
-      exampleDiv.innerHTML = ex;  
+      definitionP.innerHTML = def;
+      exampleP.innerHTML = ex;  
   }
     
+// document.onload = UDlookup;
+document.querySelector("#check").addEventListener('click', UDlookup);
 
-document.querySelector('#check').addEventListener('click', UDlookup);
 
-document.addEventListener('keydown', (key) => {
-  if(key === 13) UDlookup()});
+// function sayHi() {console.log(`hi`);}
