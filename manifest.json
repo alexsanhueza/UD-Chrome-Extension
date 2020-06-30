@@ -8,5 +8,11 @@
     "browser_action": {
         "default_icon": "UDicon.png",
         "default_popup": "index.html"
-    }
+    },
+
+
+    "permissions": [
+        "activeTab"
+        ]
+  
   }

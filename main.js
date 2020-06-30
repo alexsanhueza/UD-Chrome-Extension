@@ -17,18 +17,26 @@ function UDlookup() {
       console.log(response);
       const definition = response.list[0].definition;
       const example = response.list[0].example;
-
-      const definitionDiv = document.createElement('div');
-      definitionDiv.innerHTML = definition;
-      document.body.appendChild(definitionDiv);
-
-      const exampleDiv = document.createElement('div');
-      exampleDiv.innerHTML = example;
-      document.body.appendChild(exampleDiv);
+      addDiv(definition, example);
     })
+
     .catch((err) => {
       console.log(err);
     });
 }
 
+const definitionDiv = document.createElement('div');
+const exampleDiv = document.createElement('div');
+document.body.appendChild(definitionDiv);
+document.body.appendChild(exampleDiv);
+
+  function addDiv(def, ex) {
+      definitionDiv.innerHTML = def;
+      exampleDiv.innerHTML = ex;  
+  }
+    
+
 document.querySelector('#check').addEventListener('click', UDlookup);
+
+document.addEventListener('keydown', (key) => {
+  if(key === 13) UDlookup()});
