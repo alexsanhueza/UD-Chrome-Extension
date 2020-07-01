@@ -34,14 +34,16 @@ document.body.appendChild(definitionSpan);
 
 const popDiv = document.createElement('div');
 let definitionP = document.createElement('p');
+definitionP.classList.add('response');
 let exampleP = document.createElement('p');
+exampleP.classList.add('response');
 popDiv.appendChild(definitionP);
 popDiv.appendChild(exampleP);
 document.body.appendChild(popDiv);
 
 function addDiv(def, ex) {
   definitionP.innerHTML = def;
-  exampleP.innerHTML = ex;
+  exampleP.innerHTML = '"' + ex + '"';
 }
 
 // document.onload = UDlookup;
