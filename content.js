@@ -8,15 +8,18 @@ function selected() {
     chrome.runtime.sendMessage(message);
   }
 }
+document.querySelector('html').addEventListener('dblclick', () => {
+  //if (key === '85') {
+  let files = ['logo.png', 'logo2.png', 'logo3.png'];
+  let imgs = document.getElementsByTagName('img');
 
-let files = ['logo.png', 'logo2.png', 'logo3.png'];
-let imgs = document.getElementsByTagName('img');
-
-for (el of imgs) {
-  let pic = files[Math.floor(Math.random() * files.length)];
-  el.src = chrome.extension.getURL(pic);
-  console.log(`hi`);
-}
+  for (el of imgs) {
+    let pic = files[Math.floor(Math.random() * files.length)];
+    el.src = chrome.extension.getURL(pic);
+    console.log(`hi`);
+  }
+  //}
+});
 
 // const popDiv = document.createElement('div');
 
