@@ -1,3 +1,3 @@
 # UD-Chrome-Extension
 
-H A C K A T H O N
+Urban Dictionary word lookup Chrome Extenstion
